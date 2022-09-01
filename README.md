@@ -29,4 +29,4 @@ https://github.com/steel0rat/autodrive-gazin
 
 sudo docker-compose -f docker-compose.yml -f build.yml -f dev.yml up -d --build
 
-## Реализация тестового задания описана <a href="https://github.com/steel0rat/autodrive-gazin/edit/master">тут</a>
+## Реализация тестового задания описана <a href="https://github.com/steel0rat/autodrive-gazin/">тут</a>
