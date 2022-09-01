@@ -2,7 +2,7 @@ version: '3.5'
 services:
     api:
         volumes:
-            - /var/www/projects/autodrive-gazin:/var/www/autodrive-gazin
+            - ${LOCAL_PROJECT_DIR}:/var/www/autodrive-gazin
 
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
