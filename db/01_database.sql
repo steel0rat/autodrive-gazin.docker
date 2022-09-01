@@ -1,0 +1,12 @@
+
+ALTER SYSTEM SET wal_level = logical;
+
+CREATE ROLE telegramtree WITH LOGIN SUPERUSER INHERIT CREATEDB CREATEROLE NOREPLICATION;
+
+CREATE DATABASE telegramtree WITH
+    OWNER = telegramtree
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'en_US.utf8'
+    LC_CTYPE = 'en_US.utf8'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1;

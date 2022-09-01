@@ -1,0 +1,31 @@
+version: '3.5'
+services:
+    api:
+        image: steel0rat/autodrive-gazin:api
+        working_dir: /var/www/autodrive-gazin
+        env_file: .appenv
+        restart: 'always'
+        depends_on:
+            - db
+
+    web:
+        image: steel0rat/autodrive-gazin:web
+        ports:
+            - "8001:80"
+        environment:
+            - FASTCGI=api:9000
+        depends_on:
+            - api
+        restart: 'always'
+
+    db:
+        image: mariadb:10.5
+        environment:
+          MYSQL_USER: ${MYSQL_USER}
+          MYSQL_PASSWORD: ${MYSQL_USER_PASSWORD}
+          MYSQL_DATABASE: ${MYSQL_DATABASE}
+          MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+          SERVICE_TAGS: dev
+          SERVICE_NAME: mysql
+        ports:
+          - "6033:3306"

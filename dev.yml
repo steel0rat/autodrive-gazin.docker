@@ -1,0 +1,17 @@
+version: '3.5'
+services:
+    api:
+        volumes:
+            - /var/www/projects/autodrive-gazin:/var/www/autodrive-gazin
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        links:
+          - db
+        environment:
+          PMA_HOST: db
+          PMA_PORT: 3306
+          PMA_ARBITRARY: 1
+        restart: always
+        ports:
+          - 8081:80
